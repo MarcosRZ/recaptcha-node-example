@@ -21,13 +21,13 @@ app.post('/contact', (req, res) => {
 
     // verificar recaptcha
 
-    req.body.g-recaptcha-response
-
+    var recaptchaResponse = req.body['g-recaptcha-response']
+    
     request.post(
         'https://www.google.com/recaptcha/api/siteverify',
         {
             secret: '6Ldf_CgUAAAAADG449nsbrd1UhhnHCsKj2UxMxNm',
-            response: req.body.g-recaptcha-response
+            response: recaptchaResponse
         },
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
