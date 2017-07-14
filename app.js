@@ -31,8 +31,12 @@ app.post('/contact', (req, res) => {
         }},
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(body)
-                res.send('<h1>Hello, ' + req.body.name + '</h1>')
+                if (body.success){
+                    res.send('<h1>Congratulations, ' + req.body.name + '! It seems that you\'re not a robot! :)</h1>')
+                } else {
+                    res.send('<h1>Damn, ' + req.body.name + '! It seems that you\'re a robot! :(</h1>')
+                }
+                
             }
         }
     );
