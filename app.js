@@ -21,6 +21,8 @@ app.post('/contact', (req, res) => {
 
     // verificar recaptcha
 
+    req.body.g-recaptcha-response
+
     request.post(
         'https://www.google.com/recaptcha/api/siteverify',
         {
