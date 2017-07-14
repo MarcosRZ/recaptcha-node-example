@@ -33,9 +33,9 @@ app.post('/contact', (req, res) => {
             if (!error && response.statusCode == 200) {
                 console.log(body)
                 if (JSON.parse(body).success){
-                    res.send('<h1>Congratulations, ' + req.body.name + '! It seems that you\'re not a robot! :)</h1>')
+                    res.send('<h1>Congratulations, ' + req.body.name + '!</h1><h2>It seems that you\'re not a robot! :)</h2><a href="contact.html">Test Again!</a>')
                 } else {
-                    res.send('<h1>Damn, ' + req.body.name + '! It seems that you\'re a robot! :(</h1>')
+                    res.send('<h1>Damn, ' + req.body.name + '!</h1><h2>It seems that you\'re a robot! :(</h2><a href="contact.html">Test Again!</a>')
                 }
                 
             }
