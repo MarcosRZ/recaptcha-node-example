@@ -25,10 +25,10 @@ app.post('/contact', (req, res) => {
     
     request.post(
         'https://www.google.com/recaptcha/api/siteverify',
-        {
+        {form:{
             secret: '6Ldf_CgUAAAAADG449nsbrd1UhhnHCsKj2UxMxNm',
             response: recaptchaResponse
-        },
+        }},
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body)
